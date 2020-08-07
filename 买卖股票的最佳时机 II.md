@@ -30,6 +30,8 @@
 1 <= prices.length <= 3 * 10 ^ 4
 0 <= prices[i] <= 10 ^ 4
 
+# 首遍
+我是又没有做出来，我是打算用昨天的双指针做，i代表波谷，j代表波峰。但是遇到的问题就是我想用双循环，把每一种可能遍历出来，但是遇到了不可知错误，就是出不来。我放弃了，看答案。之后可以看快一点。当作乐趣吧。
 
 # 峰谷法
 即判断每一个数字与后一个数字的关系，如果比它小就算作波谷，如果比它大，就算作波峰。每一次找到了波谷波峰就进行，将波峰-波谷值累加
@@ -42,7 +44,7 @@ public:
         int valley = prices[0];
         int peak= prices[0];
         int maxProfit = 0;
-        while(i< prices.size()-1){
+        while(i< prices.size()-1){  //每次循环就是找到一次波峰波谷，进行一次累加
             while(i < prices.size()-1  && prices[i]>=prices[i+1]){
                 i++;
             }
@@ -61,3 +63,22 @@ public:
 *时间复杂度：O(n)O(n)。遍历一次。
 
 *空间复杂度：O(1)O(1)。需要常量的空间。
+
+# 直接法
+什么意思？就是仔细看题，股票可以当天买入当天卖出，意味着在理想的最佳收益中进行几次的插值都没有影响。我们只需要把所有的可能收益进行累加就可以了，完全不用管波峰波谷。这么简单我怎么没想到，有时候不要盲目解题，先看问题，仔细观察，寻找规律，抓住本质。
+
+···
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int maxProfit=0;
+        for (int i = 1; i< prices.size(); i++)
+        {
+            if(prices[i-1]<prices[i]){    \\如果后面一个数字大于前面一个数字，就是潜在收益
+                maxProfit +=prices[i] -prices[i-1];   \\加！！！！
+            }
+        }
+        return maxProfit;
+    }
+};
+···
