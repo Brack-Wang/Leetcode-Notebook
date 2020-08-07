@@ -83,3 +83,25 @@ public:
 ```
 *时间复杂度：O(n)O(n)，遍历一次。
 *空间复杂度：O(1)O(1)，需要常量的空间。
+**足够直接了**
+
+# 所谓贪心（直接）法
+和上面的直接法几乎一样，但是本质稍有不同。这里考虑的是，我们将股票的起伏看成一段一段的，凡是赚钱我们就进行买卖，赚钱。凡是亏钱，不买。
+
+```
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int maxProfit=0;
+        for (int i = 1; i< prices.size(); i++)
+        {
+            int tmp = prices[i]-prices[i-1];   //这里我先算一下未来的收益
+            if(tmp >0) maxProfit +=tmp;   //如果赚钱就买卖，不赚钱就不买。
+        }
+        return maxProfit;
+    }
+};
+```
+*时间复杂度 O(N)O(N) ： 只需遍历一次price；
+*空间复杂度 O(1)O(1) ： 变量使用常数额外空间。
+**所以说和直接法几乎一样，但是思路不完全一样**
