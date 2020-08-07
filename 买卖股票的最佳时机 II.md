@@ -46,14 +46,18 @@ public:
             while(i < prices.size()-1  && prices[i]>=prices[i+1]){
                 i++;
             }
-            valley = prices[i];
+            valley = prices[i];   //找到波谷
             while(i < prices.size() -1 && prices[i] <= prices[i+1]){
                 i++;
             }
-            peak = prices[i];
-            maxProfit = maxProfit + peak -valley; 
+            peak = prices[i];    //找到波峰
+            maxProfit = maxProfit + peak -valley;    //计算差值并进行累加
         }
         return maxProfit;
     }
 };
 ```
+list:
+时间复杂度：O(n)O(n)。遍历一次。
+
+空间复杂度：O(1)O(1)。需要常量的空间。
