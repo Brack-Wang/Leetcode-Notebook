@@ -1,0 +1,76 @@
+# 移动零
+给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
+
+```
+示例:
+
+输入: [0,1,0,3,12]
+输出: [1,3,12,0,0]
+```
+说明:
+
+必须在原数组上操作，不能拷贝额外的数组。
+尽量减少操作次数。
+
+##首解
+>没有仔细读题，这就错了。这里可以做到把0放到末尾，但是会自动给其他的数字进行排序。不符合题目要求。
+```
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int count= 0 ;
+        sort(nums.begin(),nums.end());
+        for(int i = 0; i< nums.size();i++){
+            if(nums[i]==0){
+                count++;
+            }
+        }
+        reverse(nums.begin(),nums.end());
+        reverse(&nums[0],&nums[nums.size()-count]);
+
+    }
+};
+```
+
+##次解
+>于是我就使用了其他的方法，但是智能做到对一个0放到末尾，还是存在问题
+```
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int j ;
+        for(int i = 0; i< nums.size();i++){
+            if(nums[i] ==0 )
+            {
+                for(j= i+1;j<nums.size();j++){
+                    nums[j-1] = nums[j];
+                }   
+                nums[nums.size()-1] = 0;
+                i =0;
+                count++;
+            }
+        }
+
+    }
+};
+```
+
+# 正确解法
+>和正确解法就差一点点，真的太简单了，不是0的就写入，是0的就不写
+```
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int record = 0;
+        for( int  i = 0; i<nums.size();i++){
+            if( nums[i]!= 0){
+                nums[record++] = nums[i];
+            }
+        }
+        for( record; record< nums.size();record++){
+            nums[record] =0;
+        }
+        
+    }
+};
+```
