@@ -1,4 +1,4 @@
-# ([8.23]两个数组的交集 II)[https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/submissions/]
+# [[8.23]两个数组的交集 II](https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/submissions/)
 给定两个数组，编写一个函数来计算它们的交集。
 
 ```
