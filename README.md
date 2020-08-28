@@ -11,3 +11,9 @@ Since i'm becoming a junior student in the school of CS, the ability of coding i
 现在还处于学习的阶段，多看看别人的解法，多总结不同的工具，不要浪费时间死磕
 
 不得不说，自己完全做出来/看着题解做出来/过一阵子再做一遍 是完全不一样的效果。想真正掌握一道不会的题目，得自己徒手做个几遍才行，不然临场发挥会遇到细节问题。
+
+### 记录：
+【8.27】终于刷到了20题，对应的为自己买了一个心心念念的机械键盘。灯光巨好看，用起来，一个字，爽！
+
+希望开学舍友不要因为码字声音干掉我
+![](https://github.com/Brack-Wang/Leetcode-Notebook/blob/master/images/New%20Keyboard.jpg)
